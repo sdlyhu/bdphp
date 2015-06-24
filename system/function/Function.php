@@ -4,7 +4,7 @@
  * @Author: dawn
  * @Date:   2015-06-23 13:18:37
  * @Last Modified by:   dawn
- * @Last Modified time: 2015-06-24 14:43:32
+ * @Last Modified time: 2015-06-24 15:55:06
  */
 
 if (!function_exists('config')) {
@@ -270,14 +270,17 @@ if (!function_exists('cookie')) {
         $time = time() + $config['expire'];
       }
       setcookie($config['prefix'].$name,$value,$time,$config['path'],$config['domain']);
+      return;
     }
     //删除cookie
     if (is_null($value)) {
       setcookie($config['prefix'].$name,'',time()-3600);
+      return;
     }
     //清空cookie
     if (is_null($name)) {
       unset($_COOKIE);
+      return;
     }
     //读取cookie
     if ($value == '' && empty($option)) {
