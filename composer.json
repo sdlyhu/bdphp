@@ -1,0 +1,15 @@
+{
+  "require": {
+    "filp/whoops": "*",
+    "illuminate/database": "*",
+    "respect/validation": "*",
+    "predis/predis": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "app\\": "app/",
+      "system\\": "system/"
+    },
+    "files": ["system/function/Function.php"]
+  }
+}
