@@ -11,6 +11,7 @@
 
 ####0.配置
 
+主机域名请解析到 `public` 目录下。
 config 目录下的 app.php 是项目的基本配置
 
 ####1.视图
@@ -41,6 +42,7 @@ model文件中引用基类 `use Illuminate\Database\Eloquent\Model;`并继承它
 ####5.请求
 
 使用 input() 接收 post 或者 get 传值。并且会自动处理参数（处理方法可以在config/app.php）中配置。
+`IS_POST` `IS_AJAX` 来判断请求方法。
 
 ####6.时间处理
 引用基类 `use Carbon\Carbon;`
@@ -65,6 +67,17 @@ model文件中引用基类 `use Illuminate\Database\Eloquent\Model;`并继承它
     Redis::set($key,$value,$time,$unit) //设置缓存
     Redis::get($key)                    //取得缓存
     Redis::delete($key)                 //删除缓存
+    
+####8.调试
+
+`p()` 方法用于打印数据 并exit。
+
+####9.辅助函数
+
+`url('moudle/controller/action')` 生成对应链接。
+`asset('css/style.css')` 模板中生成引用资源链接 （css js等文件请放到 public文件下）
+`redirect($url,$time = 0)` 跳转地址。
+`config($config_name, $name = null)` 读取配置项。
 
 欢迎大家尝鲜使用，有问题可以联系 250810491@qq.com
 
